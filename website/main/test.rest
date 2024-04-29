@@ -30,9 +30,8 @@ POST http://127.0.0.1:8000/api/create-app
 Content-Type: multipart/form-data
 
 {
-    "name": "Test App 2",
-    "link": "testapp2.com",
+    "name": "Test App 4",
+    "link": "testapp4.com",
     "category": "entertaiment",
     "sub_category": "social media",
-    "icon": "./facebook.png"
   }
