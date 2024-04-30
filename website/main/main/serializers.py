@@ -8,16 +8,11 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'password', 'email']
 
 class AppSerializer(serializers.ModelSerializer):
-    # icon = serializers.ImageField(
-    #     max_length=None,
-    #     use_url=True
-    # )
+    class Meta:
+        model = App
+        fields = '__all__'
 
+class AppCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = App
         fields = ['name', 'link', 'category', 'sub_category']
-
-        # def update(self, instance, validated_data):
-        #     instance.icon = validated_data.get('icon', instance.icon)
-        #     instance.save()
-        #     return instance

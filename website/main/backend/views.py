@@ -1,4 +1,4 @@
-from main.serializers import AppSerializer
+from main.serializers import AppSerializer, AppCreateSerializer
 from .models import App
 
 from io import BytesIO
@@ -15,17 +15,18 @@ from rest_framework.parsers import MultiPartParser, FormParser
 
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.shortcuts import render
-from django.shortcuts import get_list_or_404
+from django.shortcuts import get_list_or_404, get_object_or_404
 
 from PIL import Image as PILImage
 
 
 
 @api_view(['GET'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
 def app(request):
     apps = get_list_or_404(App)
     serializer = AppSerializer(apps, many=True)
-    print(serializer.data[0]['name'])
     return Response(serializer.data)
 
 @api_view(['POST'])
@@ -33,7 +34,7 @@ def app(request):
 @permission_classes([IsAuthenticated])
 @parser_classes([MultiPartParser, FormParser])
 def appCreate(request):
-    serializer = AppSerializer(data=request.data, many=False)
+    serializer = AppCreateSerializer(data=request.data, many=False)
     if serializer.is_valid():
         serializer.save()
     else:
@@ -41,8 +42,13 @@ def appCreate(request):
     obj = App.objects.get(name=serializer.data['name'])
     obj.icon = request.FILES.get('icon')
     obj.save()
-    print(obj)
-    # serializer.data[0]['icon'] = obj.icon
-    print(dir(serializer.data))
     return Response(serializer.data)
 
+@api_view(['GET'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def appDetail(request, pk):
+    app = App.objects.get(id=pk)
+    print(app)
+    serializer = AppSerializer(app, many=False)
+    return Response(serializer.data)

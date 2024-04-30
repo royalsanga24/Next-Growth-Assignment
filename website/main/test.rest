@@ -21,13 +21,25 @@ Authorization: Token 1799e175e2ff4e2bf77d19bebdaf6eb875c00869
 
 GET http://127.0.0.1:8000/api/apps
 Content-Type: application/json
+Authorization: Token 1799e175e2ff4e2bf77d19bebdaf6eb875c00869
 
 {}
 
 ###
 
+GET http://127.0.0.1:8000/api/app-detail/2
+Content-Type: application/json
+Authorization: Token 1799e175e2ff4e2bf77d19bebdaf6eb875c00869
+
+{}
+
+###
+
+###
+
 POST http://127.0.0.1:8000/api/create-app
 Content-Type: multipart/form-data
+Authorization: Token 1799e175e2ff4e2bf77d19bebdaf6eb875c00869
 
 {
     "name": "Test App 4",

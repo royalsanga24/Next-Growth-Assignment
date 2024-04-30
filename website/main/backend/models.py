@@ -20,6 +20,7 @@ class App(models.Model):
     link = models.CharField(max_length=100, blank=False)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, blank=False)
     sub_category = models.CharField(max_length=20, choices=SUB_CATEGORY_CHOICES, blank=False)
+    points = models.IntegerField(null=True, blank=True)
     icon = models.ImageField(upload_to=upload_to, blank=True, null=True, validators=[FileExtensionValidator(['png','jpg','gif','jpeg'])])
 
     def __str__(self):
