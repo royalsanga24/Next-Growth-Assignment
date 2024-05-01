@@ -41,7 +41,7 @@ def userDashboard(request):
     return render(request, 'user-dashboard.html', {"data": response.json()})
 
 def task(request, pk):
-    url_get_apps = "http://127.0.0.1:8000/api/app-detail/" + pk
+    url_get_apps = "http://127.0.0.1:8000/api/task-complete/"
     print(url_get_apps)
     headers = {
         "Authorization": "Token 1799e175e2ff4e2bf77d19bebdaf6eb875c00869"
@@ -50,9 +50,8 @@ def task(request, pk):
     form = CompleteTaskForm()
     if request.method == "POST":
         form = CompleteTaskForm(request.POST, request.FILES)
-        print("Ran once")
         print(request.POST, request.FILES)
         if form.is_valid():
-            print("Ran twice")
-            print(form.cleaned_data)
+            data = form.cleaned_data
+            
     return render(request, 'task.html', {"data": response.json(), "form": form})

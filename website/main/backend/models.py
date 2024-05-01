@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
+from django.contrib.auth.models import User
 
 
 def upload_to(instance, filename):
@@ -45,3 +46,10 @@ class AppModel(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Task(models.Model):
+    app = models.OneToOneField(App, on_delete=models.CASCADE)
+    user = models.ManyToManyField(User)
+
+    def __str__(self):
+        return self.app

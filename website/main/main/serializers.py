@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from backend.models import App
+from backend.models import App, Task
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta(object):
@@ -19,5 +19,5 @@ class AppCreateSerializer(serializers.ModelSerializer):
 
 class TaskCompleteSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['name', 'link', 'category', 'sub_category']
+        model = Task
+        fields = "__all__"

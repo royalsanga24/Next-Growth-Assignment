@@ -1,4 +1,4 @@
-from main.serializers import AppSerializer, AppCreateSerializer
+from main.serializers import AppSerializer, AppCreateSerializer, TaskCompleteSerializer
 from .models import App
 
 from io import BytesIO
@@ -13,9 +13,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import parser_classes
 from rest_framework.parsers import MultiPartParser, FormParser
 
-from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.shortcuts import render
-from django.shortcuts import get_list_or_404, get_object_or_404
+from django.shortcuts import get_list_or_404
 
 from PIL import Image as PILImage
 
@@ -51,4 +50,12 @@ def appDetail(request, pk):
     app = App.objects.get(id=pk)
     print(app)
     serializer = AppSerializer(app, many=False)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def taskComplete(request):
+    serializer = TaskCompleteSerializer(request.data, many=False)
+    print(serializer.data)
     return Response(serializer.data)
