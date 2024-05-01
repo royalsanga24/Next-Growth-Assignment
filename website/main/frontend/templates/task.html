@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="sidebar">
+    <div class="menu-button">Home</div>
+    <div class="menu-button">Add App</div>
+</div>
+<div class="main">
+    <div class="task-detail">
+        <img src="http://127.0.0.1:8000{{data.icon}}" />
+        <div class="app-info">
+            <h1>{{app.name}}</h1>
+            <a href="{{app.link}}" target="_blank">
+                {{app.link}}
+            </a>
+        </div>
+        <div id="points">{{app.points}}</div>
+    </div>
+    <form method="POST" id="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Complete Task">
+    </form>
+
+</div>
+{% endblock %}

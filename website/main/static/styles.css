@@ -1,0 +1,171 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(175, 242, 231);
+  }
+  
+  #root{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .App{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .navbar{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: 2em;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 0.5em;
+  }
+  .close-button{
+    background-color: rgb(90, 129, 122);
+    width: 99.7%;
+    padding-left: 2em;
+    font-size: 1.2em;
+  }
+  
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0.3em;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .hero{
+    display: flex;
+  }
+  
+  .sidebar{
+    width: 15%;
+    padding: 1em;
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 0.5em;
+    min-height: 68vh;
+  }
+  
+  .menu-button{
+    width: 40%;
+    background-color: rgb(97, 63, 141);
+    color: white;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5em;
+    margin: 0.4em;
+  }
+  
+  .main{
+    display: flex;
+    width: 85%;
+    margin: 2em;
+    margin-top: 2em;
+    padding: 1em;
+    background-color: white;
+    border-radius: 0.5em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #form{
+    width: 100%;
+  }
+  #form-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+    margin: 0.4em;
+  }
+  .form-fields{
+    display: flex;
+    margin: 0.4em;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-fields div{
+    margin: 0.5em;
+    width: 40%;
+  }
+  
+  .form-fields input{
+    width: 80%;
+    height: 3em;
+    border-radius: 0.9em;
+  }
+  
+  #bottom-fields{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #bottom-fields div{
+    margin: 0.5em;
+    width: 50%;
+  }
+  
+  #bottom-fields input{
+    width: 80%;
+    height: 3em;
+    border-radius: 0.9em;
+  }
+  
+  .task-detail{
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .app-info{
+    margin: 2em;
+  }
+  
+  #points{
+    height: 5em;
+    position: absolute;
+    right: 5em;
+    background-color: #52565a;
+    color: white;
+    height: 3em;
+    width: 10em;
+    border-radius: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .app-description{
+    background-color: rgb(175, 242, 231);
+    margin: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 0.5em;
+    padding-left: 0.5em;
+    transition: 0.5s;
+  }
+  
+
+  .select-field{
+    width: 45%;
+    height: 3.5em;
+    border-radius: 0.9em;
+  }

@@ -16,3 +16,8 @@ class AppCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = App
         fields = ['name', 'link', 'category', 'sub_category']
+
+class TaskCompleteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['name', 'link', 'category', 'sub_category']

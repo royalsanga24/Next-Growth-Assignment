@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="App">
+        <div class="navbar">
+            <div class="close-button">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <h1 class="welcome">Hello Admin</h1>
+        </div>
+        <div class="hero">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

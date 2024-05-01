@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="sidebar">
+    <div class="menu-button">Home</div>
+    <div class="menu-button">Add App</div>
+</div>
+<div class="main">
+    {% for i in data %}
+    <a href="{%url 'task' i.id%}">
+        <div class="task-detail app-description">
+            <img src='http://127.0.0.1:8000{{i.icon}}' />
+            <div class="app-info">
+                <h1>{{i.name}}</h1>
+                <a href={{i.link}} target="_blank">
+                    {{i.link}}
+                </a>
+            </div>
+            <div id="points">{{i.points}}</div>
+        </div>
+    </a>
+    {% endfor %}
+
+</div>
+{% endblock %}
